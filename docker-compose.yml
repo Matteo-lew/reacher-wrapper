@@ -5,7 +5,8 @@ services:
     restart: always
     labels:
       - traefik.enable=true
-      - 'traefik.http.routers.reacher.rule=Host("reacher.iatisation.fr")'
-      - traefik.http.routers.reacher.entrypoints=websecure
-      - traefik.http.routers.reacher.tls.certresolver=letsencrypt
-      - traefik.http.services.reacher.loadbalancer.server.port=8000
+      - traefik.http.routers.reacher.rule=Host("j048sssgwok0k8cw0kgcw0ks.31.97.177.194.sslip.io")
+      - traefik.http.routers.reacher.entrypoints=websecure          # port 443
+      - traefik.http.routers.reacher.tls.certresolver=letsencrypt   # active ACME
+      - traefik.http.services.reacher.loadbalancer.server.port=8080 # port réel du conteneur
+
