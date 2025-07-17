@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  reacher:
+    image: reacherhq/backend:latest
+    restart: always
+    labels:
+      - traefik.enable=true
+      - 'traefik.http.routers.reacher.rule=Host("reacher.iatisation.fr")'
+      - traefik.http.routers.reacher.entrypoints=websecure
+      - traefik.http.routers.reacher.tls.certresolver=letsencrypt
+      - traefik.http.services.reacher.loadbalancer.server.port=8000
